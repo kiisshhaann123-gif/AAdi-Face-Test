@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><title>Face camera test</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<style>
+html,body{margin:0;height:100%;background:#1b1d22;color:#e8e8ea;font:14px/1.4 system-ui,sans-serif;overflow:hidden}
+#view{position:fixed;inset:0}canvas{display:block}
+#ui{position:fixed;left:10px;top:10px;right:10px;display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+button,label{background:#2c313a;color:#eee;border:1px solid #444;border-radius:6px;padding:8px 12px}
+button.on{background:#3d6fb5}
+#status{flex-basis:100%;font-size:12px;color:#bcd}
+#cam{position:fixed;right:10px;bottom:10px;width:30vw;max-width:220px;border-radius:8px;border:1px solid #444;transform:scaleX(-1);background:#000}
+#top{position:fixed;left:10px;bottom:10px;font:11px/1.35 ui-monospace,monospace;background:#111a;padding:6px 8px;border-radius:6px;white-space:pre}
+</style>
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"}}</script>
+</head><body><div id="view"></div>
+<div id="ui"><button id="start">Start camera</button><label><input type="checkbox" id="mirror" checked> Mirror (like a mirror)</label><label><input type="checkbox" id="headrot" checked> Head follows</label><label>Strength <input type="range" id="gain" min="0.6" max="2" step="0.05" value="1.2"></label><div id="status">Loading...</div></div>
+<video id="cam" autoplay playsinline muted></video><div id="top"></div>
+<script type="module" src="./face.js"></script></body></html>
